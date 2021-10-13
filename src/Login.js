@@ -13,7 +13,7 @@ export default class Login extends Component {
         try {
         const { token } = await logIn(this.state.email, this.state.password)
         this.props.handleTokenChange(token);
-        this.props.history.push('/todos')
+        this.props.history.push('/todopage')
         }
         catch(e) {
             alert(this.state.error)
