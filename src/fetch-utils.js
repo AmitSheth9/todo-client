@@ -41,3 +41,4 @@ export async function updateTodo(id, completed, token) {
 
         return response.body;
 }
+

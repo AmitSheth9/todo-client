@@ -17,6 +17,8 @@ export default class TodoPage extends Component {
 
         const todos = await getTodos(this.props.token)
         this.setState({ todos: todos, todoItem: ''})
+    }
+    handleRemove = async e => {
         
     }
     
@@ -37,10 +39,11 @@ export default class TodoPage extends Component {
                     
                 <li key={`${todo.id}`} onClick={async() => {
                     await updateTodo(todo.id, !todo.completed, this.props.token)
-        const todos = await getTodos(this.props.token)
-        this.setState({todos: todos})
+                    const todos = await getTodos(this.props.token)
+                    this.setState({todos: todos})
                 }}
-                className = {todo.completed ? 'todoitem completed' : 'todoitem todo'}>{todo.todo} {todo.completed ? <p className='status-completed'>Completed</p> : '' }</li>)}
+                className = {todo.completed ? 'todoitem completed' : 'todoitem todo'}>{todo.todo} {todo.completed ? <p className='status-completed'>Completed</p> : '' }
+                <button className='removetodo' onClick={this.handleRemove}>Remove</button></li>)}
                 </ol>
             </div>
         )
