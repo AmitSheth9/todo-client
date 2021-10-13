@@ -36,24 +36,55 @@
     transform: rotate(360deg);
   }
 }
-
+body {
+  background: beige;
+}
+.title {
+  color: blue;
+  font-size: 25px;
+  font-weight:600;
+  margin: 20px;
+}
+.todoform {
+  color: blue;
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 5%;
+}
+.todoinput {
+  font-size: 20px;
+}
+.todobutton {
+  font-size: 20px;
+}
 .todoitem {
   background-color: beige;
-  border: 1px solid brown;
-  height: 500%;
+  border: 2px solid blue;
   cursor: pointer;
-  width: 75%;
-  margin: 5px;
+  width: 80%;
+  margin: 10px;
+  font-size: 200%;
+  padding: 5px;
+  border-radius: 5px;
+
 }
 
 .completed {
-  background-color: blue;
+  background-color: lightskyblue;
+  border: 3px solid red;
 }
 
 .todo {
   background-color: yellow;
 }
 
-.todoitem:hover {
-  border: 3px solid brown;
+.todo:hover {
+  border: 3px solid blue;
+}
+
+.status-completed {
+  font-size: 10px;
+  border: 1px solid red;
+  width: 10%;
+  float: right;
 }

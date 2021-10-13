@@ -24,21 +24,24 @@ export default class TodoPage extends Component {
         console.log(this.props.token);
         console.log(this.state);
         return (
-            <div>
+            <div><br/>
+                <div className='title'>
+                    TODO LIST
+                </div>
                 <form className = 'todoform' onSubmit={this.handleSubmit}>
-                    <label>Add a ToDo:<input onChange={e => this.setState({ todoItem: e.target.value})}/></label>
-                    <button>Submit</button>
+                    <label>Enter a ToDo list item:<input className='todoinput' onChange={e => this.setState({ todoItem: e.target.value})}/></label>
+                    <button className='todobutton'>Submit</button>
                 </form>
-                <div className = 'todosdiv'>
+                <ol className = 'todosdiv'>
                     {this.state.todos.map(todo => 
                     
-                <div key={`${todo.id}`} onClick={async() => {
+                <li key={`${todo.id}`} onClick={async() => {
                     await updateTodo(todo.id, !todo.completed, this.props.token)
         const todos = await getTodos(this.props.token)
         this.setState({todos: todos})
                 }}
-                className = {todo.completed ? 'todoitem completed' : 'todoitem todo'}>{todo.todo}</div>)}
-                </div>
+                className = {todo.completed ? 'todoitem completed' : 'todoitem todo'}>{todo.todo} {todo.completed ? <p className='status-completed'>Completed</p> : '' }</li>)}
+                </ol>
             </div>
         )
     }
