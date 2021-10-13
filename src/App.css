@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.todoitem {
+  background-color: beige;
+  border: 1px solid brown;
+  height: 500%;
+  cursor: pointer;
+  width: 75%;
+  margin: 5px;
+}
+
+.completed {
+  background-color: blue;
+}
+
+.todo {
+  background-color: yellow;
+}
+
+.todoitem:hover {
+  border: 3px solid brown;
+}

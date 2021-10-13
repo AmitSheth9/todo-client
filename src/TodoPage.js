@@ -25,11 +25,11 @@ export default class TodoPage extends Component {
         console.log(this.state);
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form className = 'todoform' onSubmit={this.handleSubmit}>
                     <label>Add a ToDo:<input onChange={e => this.setState({ todoItem: e.target.value})}/></label>
                     <button>Submit</button>
                 </form>
-                <div>
+                <div className = 'todosdiv'>
                     {this.state.todos.map(todo => 
                     
                 <div key={`${todo.id}`} onClick={async() => {
@@ -37,7 +37,7 @@ export default class TodoPage extends Component {
         const todos = await getTodos(this.props.token)
         this.setState({todos: todos})
                 }}
-                >{todo.todo}</div>)}
+                className = {todo.completed ? 'todoitem completed' : 'todoitem todo'}>{todo.todo}</div>)}
                 </div>
             </div>
         )

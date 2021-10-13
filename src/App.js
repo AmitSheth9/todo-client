@@ -4,6 +4,7 @@ import {
   Route,
   Switch,
   NavLink,
+  Redirect
 } from 'react-router-dom';
 import Home from './Home';
 import Login from './Login';
@@ -55,7 +56,8 @@ state = {
           <Route
           path="/todopage"
           exact
-          render={(routerProps) => <TodoPage token = {this.state.token}{...routerProps}/>}/>
+          render={(routerProps) => this.state.token ? <TodoPage token = {this.state.token}{...routerProps}/> : <Redirect to = "/signup"/> }/>
+          
         </Switch>
       </Router>
     </div>
