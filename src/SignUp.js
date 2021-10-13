@@ -6,15 +6,19 @@ export default class SignUp extends Component {
     state = {
         email: '',
         password: '',
+        error: 'please enter valid email and password'
     }
     handleSubmit = async e => {
         e.preventDefault();
+        try {
         const { token } = await signUp(this.state.email, this.state.password);
 
         this.props.handleTokenChange(token);
 
-        this.props.history.push('/todos');
-
+        this.props.history.push('/login');
+        } catch (e) {
+        alert(this.state.error)
+        }
     }
 
     

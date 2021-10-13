@@ -52,7 +52,8 @@ state = {
           <Route
           path="/login"
           exact
-          render={(routerProps) => <Login {...routerProps}/>}/>
+          render={(routerProps) => <Login handleTokenChange={this.handleTokenChange}
+          {...routerProps}/>}/>
           <Route
           path="/todopage"
           exact
